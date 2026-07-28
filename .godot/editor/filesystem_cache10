@@ -1,0 +1,11 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1785271667
+README.md::TextFile::-1::1785095574::0::1::::<><><>0<>0<><>::
+::res://scenes/::1785095574
+Boss.tscn::PackedScene::119372157558413032::1785095574::0::1::::<><><>0<>0<><>::res://scripts/Boss.gd
+Main.tscn::PackedScene::119391050289243592::1785095574::0::1::::<><><>0<>0<><>::res://scripts/TerrainGenerator.gd<>res://scenes/Player.tscn<>res://scenes/Boss.tscn
+Player.tscn::PackedScene::4059497100386748200::1785095574::0::1::::<><><>0<>0<><>::res://scripts/Player.gd
+::res://scripts/::1785187830
+Boss.gd::GDScript::5893484772460003647::1785095574::0::1::::<>CharacterBody3D<><>0<>0<><>::
+Player.gd::GDScript::5326341721709883526::1785095574::0::1::::<>CharacterBody3D<><>0<>0<><>::
+TerrainGenerator.gd::GDScript::5038419676628653750::1785187830::0::1::::<>MeshInstance3D<><>0<>0<><>::
