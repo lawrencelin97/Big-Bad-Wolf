@@ -7,6 +7,7 @@ extends CharacterBody3D
 @export var telegraph_time: float = 1.0    # big enemies need a readable tell before the hit lands
 @export var attack_cooldown: float = 1.2
 @export var telegraph_y_offset: float = -3.95  # local Y so the circle sits at the boss's feet (adjust to your model)
+@export var telegraph_ground_clearance: float = 0.2  # tiny lift above terrain to prevent z-fighting on hills
 
 const GRAVITY = 20.0
 
@@ -58,7 +59,7 @@ func _create_telegraph_visual():
 	telegraph = Node3D.new()
 	telegraph.name = "TelegraphCircle"
 	add_child(telegraph)
-	telegraph.position = Vector3(0, telegraph_y_offset, 0)
+	telegraph.position = Vector3(0, telegraph_y_offset + telegraph_ground_clearance, 0)
 	telegraph.scale = Vector3(attack_radius, 1.0, attack_radius)
 	telegraph.visible = false
 
@@ -75,7 +76,7 @@ func _create_telegraph_visual():
 	fill_material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	fill_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	fill_material.albedo_color = Color(1, 0, 0, 0.18)
-	fill_material.no_depth_test = true       # draw on top of terrain instead of clipping into hills
+	#fill_material.no_depth_test = true       # draw on top of terrain instead of clipping into hills
 	fill_material.render_priority = 1
 	fill_instance.material_override = fill_material
 	telegraph.add_child(fill_instance)
@@ -93,7 +94,7 @@ func _create_telegraph_visual():
 	ring_material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	ring_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	ring_material.albedo_color = Color(1, 0, 0, 0.9)
-	ring_material.no_depth_test = true
+	#ring_material.no_depth_test = true
 	ring_material.render_priority = 2
 	ring_instance.material_override = ring_material
 	telegraph.add_child(ring_instance)
