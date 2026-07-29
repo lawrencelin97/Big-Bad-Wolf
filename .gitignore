@@ -14,3 +14,4 @@ data_*/
 # System/IDE
 .DS_Store
 *.tmp
+/.godot
