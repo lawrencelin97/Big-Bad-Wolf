@@ -3,10 +3,10 @@ extends MeshInstance3D
 ## Attach this to a MeshInstance3D. It builds a heightmap-based ground mesh
 ## with slight rolling hills and generates matching collision at runtime.
 
-@export var width: int = 200
-@export var depth: int = 200
-@export var height_scale: float = 10.0        # keep LOW for "slight" hills (try 2-5)
-@export var noise_frequency: float = 0.005    # lower = broader, gentler hills
+@export var width: int = 100
+@export var depth: int = 100
+@export var height_scale: float = 3.0        # keep LOW for "slight" hills (try 2-5)
+@export var noise_frequency: float = 0.04    # lower = broader, gentler hills
 @export var random_seed: int = 0             # 0 = random each run
 
 var noise := FastNoiseLite.new()
@@ -16,6 +16,7 @@ func _ready():
 	noise.frequency = noise_frequency
 	noise.seed = random_seed if random_seed != 0 else randi()
 	generate_terrain()
+	add_to_group("terrain")
 
 func generate_terrain():
 	var st = SurfaceTool.new()
