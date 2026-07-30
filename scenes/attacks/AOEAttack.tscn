@@ -5,13 +5,13 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fill"]
 transparency = 1
 shading_mode = 0
-albedo_color = Color(1, 0, 0, 0.18)
+albedo_color = Color(1, 0, 0, 0.35)
 render_priority = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ring"]
 transparency = 1
 shading_mode = 0
-albedo_color = Color(1, 0, 0, 0.9)
+albedo_color = Color(1, 0, 0, 0.7)
 render_priority = 2
 
 [node name="AOEAttack" type="Node3D"]
@@ -22,3 +22,9 @@ material_override = SubResource("StandardMaterial3D_fill")
 
 [node name="RingMesh" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_ring")
+
+[node name="DamageArea" type="Area3D" parent="."]
+monitoring = true
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DamageArea"]
