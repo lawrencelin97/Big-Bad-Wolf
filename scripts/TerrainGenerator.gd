@@ -5,8 +5,8 @@ extends MeshInstance3D
 
 @export var width: int = 100
 @export var depth: int = 100
-@export var height_scale: float = 3.0        # keep LOW for "slight" hills (try 2-5)
-@export var noise_frequency: float = 0.04    # lower = broader, gentler hills
+@export var height_scale: float = 0.0       # keep LOW for "slight" hills (try 2-5)
+@export var noise_frequency: float = 0.00    # lower = broader, gentler hills
 @export var random_seed: int = 0             # 0 = random each run
 
 var noise := FastNoiseLite.new()

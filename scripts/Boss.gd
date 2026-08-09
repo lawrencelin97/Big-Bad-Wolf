@@ -2,7 +2,8 @@ extends CharacterBody3D
 
 @export var max_health: int = 500
 @export var move_speed: float = 2.0        # slow — size implies weight
-@export var attack_radius: float = 6.0     # trigger range AND the AOE's radius
+@export var attack_trigger_range: float = 6.0  # how close the player must be before the boss attacks
+												  # (keep roughly matching CircleAOE's authored radius)
 @export var attack_damage: int = 30
 @export var telegraph_time: float = 1.0    # big enemies need a readable tell before the hit lands
 @export var attack_cooldown: float = 1.2
@@ -32,7 +33,7 @@ func _physics_process(delta):
 	to_player.y = 0
 	var dist = to_player.length()
 
-	if dist > attack_radius:
+	if dist > attack_trigger_range:
 		var dir = to_player.normalized()
 		velocity.x = dir.x * move_speed
 		velocity.z = dir.z * move_speed
@@ -47,9 +48,8 @@ func _physics_process(delta):
 func _start_attack():
 	attacking = true
 
-	var atk: CircleAOE = CircleAOEScene.instantiate()
+	var atk: AOEAttack = CircleAOEScene.instantiate()
 	get_tree().current_scene.add_child(atk)
-	atk.radius = attack_radius
 	atk.damage = attack_damage
 	atk.telegraph_time = telegraph_time
 
