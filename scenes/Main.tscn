@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bx3main00001"]
+[gd_scene load_steps=5 format=3 uid="uid://bx3main00001"]
 
 [ext_resource type="Script" path="res://scripts/TerrainGenerator.gd" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/Player.tscn" id="2"]
 [ext_resource type="PackedScene" path="res://scenes/Boss.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://scenes/HUD.tscn" id="4"]
 
 [node name="Main" type="Node3D"]
 
@@ -18,3 +19,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 10, 5)
 
 [node name="Boss" parent="." instance=ExtResource("3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 6, 20)
+
+[node name="HUD" parent="." instance=ExtResource("4")]
